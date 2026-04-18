@@ -1,0 +1,36 @@
+#continer{
+    height:200px;
+    width:300px;
+    background-color:yellow;
+    position:relative;
+}
+.box{
+    background-color:rgb(28, 28, 187);
+    box-sizing:border-box;
+}
+.ist,.trd{
+    height:85px;
+    width:85px;
+
+
+}
+.trd{
+    position:absolute;
+    bottom:0px;
+
+}
+.cnd,.fth{
+    width:170px;
+    height:85px;
+    position:absolute;
+
+
+}
+.cnd{
+    top:0px;
+    right:0px;
+}
+.fth{
+    bottom:0px;
+    right:0px;
+}
