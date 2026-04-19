@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+        .container{
+            height:100vh;
+            background-color:black;
+            /* position:relative; */
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+          
+        }
+        .box{
+            height:200px;
+            width:200px;
+            background-color:orange;
+            cursor:pointer;
+            font-size:30px;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            /* for box to be in center position */
+            /* position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%); */
+            animation-name:moving;
+            animation-duration:5s;
+            animation-timing-function:linear;
+            animation-iteration-count:infinite;
+            border-radius:50%;
+        }
+        @keyframes moving{
+            from{
+                transform:rotate(0deg) translateX(200px) rotate(-0deg);
+            }
+            to{
+                transform:rotate(360deg) translateX(200px) rotate(-360deg);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">SUN</div>
+    </div>
+</body>
+</html>

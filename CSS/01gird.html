@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about grid</title>
+<style>
+
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing:border-box;
+}
+body{
+    background-color:black;
+
+}
+.container{
+    display:grid;
+    /* grid-template-rows:200px 200px;
+    grid-template-columns:200px 200px; 
+
+    fraction is used to overcome the width overflow
+    it automatically adjust its width
+    */
+    grid-template-rows:1fr 1fr;
+    grid-template-columns:1fr 1fr;
+    background-color:aqua;
+    font-size:25px;
+    gap:10px;
+    padding:10px;
+    height:400px;
+    width:400px;
+
+}
+.first{
+    background-color:red;
+}
+.second{
+    background-color:orange;
+}
+.third{
+    background-color:green;
+}
+.fourth{
+    background-color:blue;
+}
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="box first "> first</div>
+        <div class="box second ">second</div>
+        <div class="box third ">third</div>
+        <div class="box fourth ">fourth</div>
+    </div>
+    
+</body>
+</html>

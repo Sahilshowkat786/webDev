@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learning about transitions</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+        .container{
+            height:100vh;
+            background-color:black;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:5px;
+            /* for 3d transition */
+            perspective:800px; 
+        }
+        .box{
+            height:150px;
+            width:150px;
+            background-color:orange;
+            cursor:pointer;
+            /* transform:translateY(-100px); */
+            /* transform:rotate(30deg); */
+            /* transform:skewX(-30deg); */
+            /* shorthand property of transition */
+            transition: all 3s;
+        }
+
+        .box:hover{
+            /* background-color:blue;
+            height:300px; */
+            /* transform:scale(2);
+            transform:scaleX(2); */
+
+            /* transform:translate(100px,200px); */
+            transform:translateZ(200px);
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box" style="background-color:rgb(0, 255, 85)"></div>
+    </div>
+</body>
+</html>

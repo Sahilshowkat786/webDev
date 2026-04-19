@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learn about animation</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+            box-sizing:border-box;
+             background-color:black;
+        }
+        .container{
+           padding:20px;
+           position:relative;
+        }
+        .box{
+            height:100px;
+            width:150px;
+            background-color:red;
+            animation-name:moving;
+            animation-duration:3s;
+            animation-iteration-count:1;
+            animation-timing-function:linear; 
+            animation-direction:alternate;
+            animation-delay:2s;
+            animation-fill-mode :backwards;
+            position:absolute;
+
+        }
+        @keyframes moving{
+            from{
+                background-color:orange;
+                top:10px;
+                left:10px;
+            }
+            to{
+                background-color:blue;
+                top:10px;
+                left:800px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    
+</body>
+</html>

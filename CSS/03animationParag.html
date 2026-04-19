@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+            box-sizing:border-box;
+        }
+        body{
+            background-color:#0a0a0a0a;
+            display:flex;
+            justify-content:center;
+            padding-top:20px
+        }
+        .container{
+            background-color:aqua;
+            border:1px solid red;
+            font-size:40px;
+            padding:10px;
+            color:black;
+            width:70%;
+            border-radius:10px;
+            white-space:nowrap;
+            overflow:hidden;
+        }
+p{
+    margin-left:50%;
+    animation-name:moving;
+    animation-duration:10s;
+    animation-iteration-count:infinite;
+    /* animation-fill-mode:backwards;
+    animation-direction:alternate;
+ */
+}
+@keyframes moving {
+    from{
+     margin-left:100%;
+    }
+    to{
+        margin-left:-100%;
+
+    }
+
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <p>hello my name is sahil showkat</p>
+</div>
+    
+</body>
+</html>
