@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>to-do</title>
+    <style>
+      /* css code */
+      body {
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .conatiner {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(0px);
+        border-radius: 10px;
+        text-align: center;
+      }
+      input {
+        height: 30px;
+        margin: 10px;
+        border-radius: 10px;
+        border: none;
+        padding:5px;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      #Addbtn {
+        height: 30px;
+        margin-right: 5px;
+        border-radius: 5px;
+        border: none;
+      }
+      #doneBtn {
+        background-color: green;
+        margin: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+      #deleteBtn {
+        background-color: rgb(215, 28, 28);
+        margin: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- html code -->
+    <div class="conatiner">
+      <h1>To Do List</h1>
+      <form>
+        <input type="text" id="task" required />
+        <button type="submit" id="Addbtn">Add</button>
+        <h2>Task List</h2>
+      </form>
+      <div class="result"></div>
+    </div>
+
+    <!-- js code -->
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const input = document.querySelector("input");
+        const text = input.value.trim();
+
+        const parent = document.createElement("div");
+        parent.textContent = text;
+
+        // done button
+        const done = document.createElement("button");
+        done.id = "doneBtn"; // for css
+        done.textContent = "Done";
+
+        done.addEventListener("click", () => {
+          parent.style.textDecoration = "line-through";
+          parent.style.color='grey';
+        });
+        // delete button
+        const delet = document.createElement("button");
+        delet.id = "deleteBtn"; // for css
+        delet.textContent = "delete";
+        delet.addEventListener("click", () => {
+          parent.remove();
+        });
+
+        parent.append(done, delet);
+
+        const result = document.querySelector(".result");
+        result.append(parent);
+
+        input.value = ""; // clear input after adding
+      });
+    </script>
+  </body>
+</html>

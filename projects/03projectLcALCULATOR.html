@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>love Calculator</title>
+    <!-- css code  -->
+    <style>
+      body {
+        background-color: linen;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- html code -->
+    <div id="first">
+      <h1>Love calculator</h1>
+      <form>
+        <label for="boy">Boy name:</label>
+        <input type="text" id="boy" name="boy" required />
+        <br /><br />
+        <label for="girl">girl name:</label>
+        <input type="text" id="girl" name="girl" required />
+        <br /><br />
+        <button type="submit">Calculate</button>
+      </form>
+      <br /><br />
+      <h2>Result:</h2>
+    </div>
+
+    <!-- js code -->
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const boy = document.getElementById("boy");
+        const girl = document.getElementById("girl");
+
+        const l1 = boy.value.length;
+        const l2 = girl.value.length;
+        const result = Math.pow(l1 + l2, 3) % 101; // it gives values bwtween 0-100
+        document.querySelector("h2").textContent = `Result: ${result} %`;
+        form.reset();
+      });
+    </script>
+  </body>
+</html>

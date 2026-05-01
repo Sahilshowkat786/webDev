@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clicker</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            height: 100vh;
+            position:relative;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+
+        }
+        .clicker{
+            height: 50px;
+            width:50px;
+            border-radius: 50%;
+            animation:glow 5s forwards;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow:hidden;
+            position: absolute;
+        }
+        @keyframes glow {
+            0%{
+                transform:scale(1);
+                font-size: 10px;
+                opacity: 1;
+            }
+            100%{
+                transform:scale(3);
+                font-size: 40px;
+                opacity: 0;
+            }
+            
+        }
+
+    </style>
+</head>
+<body>
+    <!-- html code -->
+
+    <script>
+        const body=document.querySelector("body");
+        body.addEventListener("click",(e)=>{
+            //e.clientY,e.clientX gives coordinates of x and y of mouse click
+            // newelement create div
+            const circleEle=document.createElement("div");
+            circleEle.classList.add("clicker");
+            circleEle.textContent="sahil";
+            const color=["red","blue","orange","pink","green","brown","purple"];
+            circleEle.style.backgroundColor=color[Math.floor(Math.random()*7)];
+
+            circleEle.style.top=`${e.clientY-25}px`;
+            circleEle.style.left=`${e.clientX-25}px`;
+            body.append(circleEle);
+
+            // for removal of these circle
+            setTimeout(()=>{
+                circleEle.remove();
+
+            },5000);
+
+        });
+
+
+    </script>
+    
+</body>
+</html>

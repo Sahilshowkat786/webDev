@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>countdown timmer</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="time">
+      <h1>Eid countdown timer</h1>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      const result = document.getElementById("result");
+      setInterval(() => {
+        const current = Date.now();
+        const eid = new Date(2026, 4, 27).getTime();
+        let timer = eid - current;
+
+        const day = Math.floor(timer / (1000 * 60 * 60 * 24));
+        timer %= 1000 * 60 * 60 * 24;
+
+        const hr = Math.floor(timer / (1000 * 60 * 60));
+        timer %= 1000 * 60 * 60;
+        const min = Math.floor(timer / (1000 * 60));
+        timer %= 1000 * 60;
+
+        const sec = Math.floor(timer / 1000);
+        timer %= 1000;
+        result.textContent = `${day}:days  ${hr}:hours  ${min}:minutes   ${sec}:seconds`;
+      }, 1000);
+    </script>
+  </body>
+</html>

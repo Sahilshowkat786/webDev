@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>quote Generator</title>
+    <!-- css code -->
+    <style>
+      body {
+        background-color: antiquewhite;
+      }
+      #first {
+        display: flex;
+        flex-direction: column; /* button always below heading */
+        align-items: center; /* center horizontally */
+        gap: 20px; /* space between heading & button */
+        text-align: center;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      button {
+        cursor: pointer;
+        padding: 10px;
+        font-weight: bold;
+        background-color: rgb(171, 180, 122);
+        border: none;
+        border-radius: 10px;
+        height: 50px;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- html code -->
+    <div id="first">
+      <h1>Honesty is best policy</h1>
+      <button>Random Quote Generator</button>
+    </div>
+    <!-- java script code -->
+    <script>
+      // array of hadith
+      const hadiths = [
+        "Actions are judged by intentions, and every person will get what they intended.",
+        "Allah is kind and loves kindness in all matters.",
+        "The best among you are those who have the best manners and character.",
+        "Truth leads to righteousness, and righteousness leads to Paradise.",
+        "Your smile for your brother is charity.",
+        "Cleanliness is half of faith.",
+        "Allah helps the servant as long as the servant helps his brother.",
+        "The merciful are shown mercy by the Most Merciful. Be merciful to those on earth, and the One above the heavens will have mercy upon you.",
+        "Do not get angry.",
+        "None of you truly believes until he loves for his brother what he loves for himself.",
+      ];
+      // search element
+      const button = document.querySelector("button");
+      const quote = document.querySelector("h1");
+      button.addEventListener("click", () => {
+        const index = Math.floor(Math.random() * 10);
+        quote.textContent = hadiths[index];
+      });
+    </script>
+  </body>
+</html>

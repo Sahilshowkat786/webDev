@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: antiquewhite;
+        /* height: 100vh; */
+      }
+      #container {
+        background-color: #245098;
+        width: 300px;
+        height: 500px;
+        border-radius: 10px;
+        padding: 20px;
+        color: white;
+      }
+      label {
+        display: block;
+        margin: 5px;
+      }
+      input {
+        width: 100%;
+        border-radius: 6px;
+        border: none;
+        height: 25px;
+        
+      }
+      button {
+        width: 100%;
+        margin-top: 15px;
+        height: 30px;
+        background-color: aqua;
+        border-radius: 10px;
+        border: none;
+      }
+      #result {
+        padding: 20px;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Your predication</h1>
+      <form id="preform">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="fname">Father's Name:</label>
+        <!-- dob -->
+        <input type="text" id="fname" name="fname" required />
+        <label for="day">Date of Birth(day):</label>
+        <input type="number" id="day" name="day" min="1" max="30" required />
+        <label for="month">Month:</label>
+        <input
+          type="number"
+          id="month"
+          name="month"
+          min="1"
+          max="12"
+          required
+        />
+        <label for="year">Year:</label>
+        <input
+          type="number"
+          id="year"
+          name="year"
+          min="1990"
+          max="2026"
+          required
+        />
+        <button type="submit">Get details</button>
+      </form>
+      <div id="result"></div>
+    </div>
+    <script>
+      // has 12 elements
+      const personalities = [
+        "Confident and natural leader",
+        "Calm and patient thinker",
+        "Creative and full of ideas",
+        "Emotional and caring",
+        "Bold and energetic",
+        "Practical and hardworking",
+        "Smart and curious",
+        "Friendly and social",
+        "Focused and disciplined",
+        "Ambitious and goal-oriented",
+        "Independent and strong-minded",
+        "Kind and supportive",
+      ];
+      //has 31 habits
+      const habits = [
+        "Wake up early and plan your day",
+        "Drink more water",
+        "Exercise for at least 20 minutes",
+        "Read 10 pages of a book",
+        "Avoid social media for 2 hours",
+        "Practice gratitude",
+        "Help someone today",
+        "Learn something new",
+        "Eat healthy food",
+        "Take a short walk",
+        "Write your thoughts in a journal",
+        "Meditate for 5 minutes",
+        "Organize your workspace",
+        "Spend time with family",
+        "Avoid negative thinking",
+        "Practice coding for 1 hour",
+        "Listen more, talk less",
+        "Set small goals for the day",
+        "Sleep on time",
+        "Avoid junk food",
+        "Stay positive all day",
+        "Focus on one task at a time",
+        "Save some money",
+        "Watch something educational",
+        "Practice patience",
+        "Compliment someone",
+        "Try something creative",
+        "Avoid procrastination",
+        "Review your day",
+        "Stay consistent with your routine",
+        "Believe in yourself",
+      ];
+
+      const form = document.querySelector("form");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const day = parseInt(document.getElementById("day").value);
+        const month = parseInt(document.getElementById("month").value);
+
+        const text = `Assalamualaikum ${name}, your personality is: ${personalities[month - 1]} and your habit is ${habits[day - 1]}`;
+
+        document.getElementById("result").textContent = text;
+        form.reset();
+      });
+    </script>
+  </body>
+</html>

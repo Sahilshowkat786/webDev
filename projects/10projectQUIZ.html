@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <style>
+      *{
+        padding:0px;
+        /* margin:0px; */
+      }
+      .submit-btn {
+        background-color: rgba(0, 0, 255, 0.571);
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        border-radius: 20px;
+        border: none;
+        font-size: large;
+        margin-top: 20px;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aliceblue;
+      }
+      .mainpaper {
+        background-color: antiquewhite;
+        padding: 20px;
+        width: 500px;
+      }
+      h1 {
+        text-align: center;
+      }
+      p {
+        font-weight: bold;
+      }
+      .result {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mainpaper">
+      <h1>Computer Science Quiz</h1>
+      <form id="quizform">
+        <!-- questions -->
+        <div class="questions">
+          <!-- question 1 -->
+          <p>1.which data structure uses FIFO?</p>
+
+          <label> <input type="radio" name="q1" value="Tree" />Tree </label>
+          <label
+            ><br />
+            <input type="radio" name="q1" value="Stack" />Stack
+          </label>
+          <label
+            ><br />
+            <input type="radio" name="q1" value="Queue" />Queue
+          </label>
+          <label
+            ><br />
+            <input type="radio" name="q1" value="Graph" />Graph
+          </label>
+        </div>
+        <!-- question 2 -->
+        <div class="questions">
+          <p>2.What is the time complexity of binary search?</p>
+          <label> <input type="radio" name="q2" value="O(n)" />O(n) </label>
+          <label
+            ><br />
+            <input type="radio" name="q2" value="O(log n)" />O(log n)
+          </label>
+          <label
+            ><br />
+            <input type="radio" name="q2" value="O(1)" />O(1)
+          </label>
+          <label
+            ><br />
+            <input type="radio" name="q2" value="O(n log n)" />O(n log n)
+          </label>
+        </div>
+        <div class="questions">
+          <!-- question 3 -->
+          <p>3.Which loop executes at least once?</p>
+          <label>
+            <input type="radio" name="q3" value="for loop" />for loop
+          </label>
+          <label
+            ><br />
+            <input type="radio" name="q3" value="while loop" />while loop
+          </label>
+          <label
+            ><br />
+            <input type="radio" name="q3" value="do-while loop" />do-while loop
+          </label>
+          <label
+            ><br />
+            <input type="radio" name="q3" value="none" />none
+          </label>
+        </div>
+        <div class="questions">
+          <!-- question 4 -->
+          <p>4.Who developed javascript and in how many days ?</p>
+          <label>
+            <input
+              type="radio"
+              name="q4"
+              value="Tim Berners-Lee in 6 months"
+            />Tim Berners-Lee in 6 months
+          </label>
+          <label
+            ><br />
+            <input
+              type="radio"
+              name="q4"
+              value="Bjarne Stroustrup in 9 years"
+            />Bjarne Stroustrup in 9 years
+          </label>
+          <label
+            ><br />
+            <input
+              type="radio"
+              name="q4"
+              value="Dennnis Ritchie in 1 year"
+            />Dennnis Ritchie in 1 year
+          </label>
+          <label
+            ><br />
+            <input
+              type="radio"
+              name="q4"
+              value="Brendan Eich in 10days"
+            />Brendan Eich in 10days
+          </label>
+        </div>
+        <div class="questions">
+          <!-- question 5 -->
+          <p>5.which language is used to query databases ?</p>
+          <label> <input type="radio" name="q5" value="SQL" />SQL </label>
+          <label
+            ><br />
+            <input type="radio" name="q5" value="CSS" />CSS
+          </label>
+          <label
+            ><br />
+            <input type="radio" name="q5" value="DBMS" />DBMS
+          </label>
+          <label
+            ><br />
+            <input type="radio" name="q5" value="JAVA" />JAVA
+          </label>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+      <div class="result" id="result"></div>
+    </div>
+
+    <!-- js code -->
+
+    <script>
+      const form = document.getElementById("quizform");
+
+      const answer = {
+        q1: "Queue",
+        q2: "O(log n)",
+        q3: "do-while loop",
+        q4: "Brendan Eich in 10days",
+        q5: "SQL",
+      };
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let score = 0;
+
+        const data = new FormData(form);
+        for (let [name, value] of data.entries()) {
+          if (answer[name] == value) {
+            score++;
+          }
+        }
+        document.getElementById("result").textContent =
+          `Your score is ${score} out of 5`;
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
