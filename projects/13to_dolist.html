@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: bisque;
+      }
+      #display {
+        height: 20px;
+        border-radius: 10px;
+        border: solid 1px black;
+        padding: 10px;
+        font-size: medium;
+      }
+      #taskadd {
+        width: 60px;
+        height: 40px;
+        border-radius: 10px;
+        border: solid black 1px;
+      }
+      #result {
+        padding: 10px;
+      }
+      li button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>To do list</h1>
+      <input type="text" id="display" placeholder="Add task here" />
+
+      <button id="taskadd">Add</button>
+
+      <ul id="result"></ul>
+    </div>
+
+    <script>
+      const addtask = document.getElementById("taskadd");
+      addtask.addEventListener("click", (e) => {
+        e.preventDefault();
+        const text = document.getElementById("display").value;
+        if (text.trim() === "") {
+          alert("please enter a task");
+          return;
+        }
+        const output = document.getElementById("result");
+        const li = document.createElement("li");
+        li.textContent = text;
+        const btndelete = document.createElement("button");
+        btndelete.textContent = "delete";
+        const btndone = document.createElement("button");
+        btndone.textContent = "done";
+       btndone.addEventListener("click", () => {
+    if (li.style.textDecoration === "line-through") {
+        li.style.textDecoration = "none";
+    } else {
+        li.style.textDecoration = "line-through";
+    }
+});
+        btndelete.addEventListener("click", () => {
+          li.remove();
+        });
+        li.appendChild(btndone);
+        li.appendChild(btndelete);
+        output.appendChild(li);
+        document.getElementById("display").value = "";
+      });
+    </script>
+  </body>
+</html>

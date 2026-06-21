@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: antiquewhite;
+      }
+      input {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+        border: 1px solid black;
+      }
+      #bt {
+        width: 100px;
+        height: 40px;
+        border-radius: 15px;
+        background-color: rgb(86, 86, 245);
+        border: none;
+      }
+      ul button {
+        margin-left: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Expense tracker</h1>
+    <input type="text" id="expenseName" placeholder="Expense Name" />
+    <input type="Number" id="amount" placeholder="Amount" />
+    <button id="bt">Add Expense</button>
+    <ul id="expense"></ul>
+
+    <h2 id="total">Total: ₹0</h2>
+
+    <script>
+      const addexp = document.getElementById("bt");
+      let total = 0;
+      addexp.addEventListener("click", (e) => {
+        e.preventDefault();
+        const expenseName = document.getElementById("expenseName").value;
+        const amount = Number(document.getElementById("amount").value);
+        if (expenseName.trim() === "") {
+          alert("please fill all fields");
+          return;
+        }
+        if (amount <= 0) {
+          alert("Amount must be greater than 0");
+          return;
+        }
+
+        total += amount;
+        const output = document.getElementById("expense");
+        const li = document.createElement("li");
+        const btndel = document.createElement("button");
+        btndel.textContent = "Delete";
+
+        li.textContent = `${expenseName} ========> ₹${amount}`;
+        btndel.addEventListener("click", () => {
+          li.remove();
+          total -= amount;
+          document.getElementById("total").textContent = `Total: ₹${total}`;
+        });
+        li.appendChild(btndel);
+
+        output.appendChild(li);
+        document.getElementById("total").textContent = `Total: ₹${total}`;
+        document.getElementById("expenseName").value = "";
+        document.getElementById("amount").value = "";
+      });
+    </script>
+  </body>
+</html>
