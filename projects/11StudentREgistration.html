@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students registration form</title>
+    <!-- css used -->
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: antiquewhite;
+      }
+      label {
+        font-size: large;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      input {
+        width: 250px;
+        height: 20px;
+        border-radius: 10px;
+        border: solid 1px black;
+        font-size: 15px;
+        padding: 5px;
+      }
+      select {
+        width: 250px;
+        height: 20px;
+        border-radius: 10px;
+      }
+      button {
+        width: 300px;
+        height: 30px;
+        border-radius: 10px;
+        border: solid 1px black;
+      }
+      /* .container{
+            background-color: aqua;
+            width: 900px;
+            height: 1000px;
+        } */
+      #output {
+        padding: 10px;
+        font-style: oblique;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- html -->
+    <div class="container">
+      <h1>Registration Form</h1>
+      <form id="form">
+        <br />
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter Your name here" />
+        <br /><br />
+        <label>Rollno:</label>
+        <input type="text" id="rollno" placeholder="Enter your Rollno here" />
+        <br /><br />
+        <label>Branch:</label>
+        <input type="text" id="branch" placeholder="Enter branch here" />
+        <br /><br />
+        <label>Domain:</label>
+        <select id="domain">
+          <option>app dev</option>
+          <option>web dev</option>
+          <option selected>AI and ML</option>
+          <option>cyber Security</option>
+        </select>
+        <br /><br />
+        <button>Submit</button>
+        <div id="output"></div>
+      </form>
+    </div>
+  </body>
+  <script>
+    const form = document.getElementById("form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const rollno = document.getElementById("rollno").value;
+      const branch = document.getElementById("branch").value;
+
+      if (name === "" || rollno == "" || branch == "") {
+        alert("please fill all fields");
+        return;
+      }
+      if (name.length < 3) {
+        alert("Name must be at least 3 characters");
+        return;
+      }
+      alert("Registration Successful!");
+      const output = document.getElementById("output");
+      const domain = document.getElementById("domain").value;
+
+      output.innerHTML = `<h1>Student's Detail</h1>
+  <p>Name:${name}</p>
+  <p>Rollno:${rollno}</p>
+  <p>Branch:${branch}</p>
+  <p>Domain:${domain}</p>
+  `;
+    });
+  </script>
+</html>
